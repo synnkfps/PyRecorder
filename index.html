@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <img id="screen" src="">
+
+    <script>
+        setInterval(() => {
+            const zeroPad = (num, places) => String(num).padStart(places, '0')
+
+            var today = new Date();
+            //var time = today.getHours() + '' + today.getMinutes() + '' + today.getSeconds();
+            var time = parseInt(`${zeroPad(today.getHours(), 2)}${zeroPad(today.getMinutes(), 2)}${zeroPad(today.getSeconds(), 2)}`);
+            console.log(`Switched to: images/image${time}.jpg`);
+            if (String(time).endsWith("00")) {
+                // 231100 - 100
+                document.getElementById("screen").src = `images/image${time-100+58}.jpg`
+            } else {
+                document.getElementById("screen").src = `images/image${time-1}.jpg`
+            }
+            
+        }, 900);
+    </script>
+</html>
