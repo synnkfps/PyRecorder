@@ -1,5 +1,5 @@
 # PyRecorder
-Screen Recorder using Python `3.10.X`. (uses numpy, cv2 and pyautogui)
+Screen Recorder using Python `3.10.X`. (uses numpy, cv2 and pyautogui) (hosts to html file, not .mp4 video)
 
 ## How to use
 - Download the `.zip` then extract it to anywhere
@@ -16,3 +16,9 @@ Screen Recorder using Python `3.10.X`. (uses numpy, cv2 and pyautogui)
 (as the recorder are based on your time)
 
 The screenshots are being taken within a 500ms delay or so, and the final processing time is something around 700ms, 9+7 = 16 so the final FPS is 1.6 (i think)
+
+## Features
+- [X] FPS Counter (semi-accurate)
+- [X] Main Screen Viewer
+- [ ] Multi-Platform
+- [ ] High FPS
