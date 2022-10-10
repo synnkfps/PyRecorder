@@ -1,10 +1,10 @@
 <!DOCTYPE html>
     <style>
-        .image {
-    display: flex;
-    width: 100%;
-    height: 400px;
-    justify-content: center;
+    .image {
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        justify-content: center;
     }
 
     img {
@@ -33,9 +33,11 @@
 
         var fpsOut = document.getElementById('fps');
 
+        var fps_interval = 24
+
         setInterval(function(){
-        fpsOut.innerHTML = (1000/frameTime).toFixed(1) + " fps";
-        },1000);
+            fpsOut.innerHTML = (1000/frameTime/fps_interval).toFixed(1) + " fps";
+        }, 1);
 
         setInterval(() => {
             var thisFrameTime = (thisLoop=new Date) - lastLoop;
@@ -45,16 +47,15 @@
             const zeroPad = (num, places) => String(num).padStart(places, '0')
             document.getElementById("size").textContent = document.getElementById("screen").clientWidth + "x" + document.getElementById("screen").clientHeight;
             var today = new Date();
-            //var time = today.getHours() + '' + today.getMinutes() + '' + today.getSeconds();
+            
             var time = parseInt(`${zeroPad(today.getHours(), 2)}${zeroPad(today.getMinutes(), 2)}${zeroPad(today.getSeconds(), 2)}`);
             console.log(`Switched to: images/image${time}.jpg`);
             if (String(time).endsWith("00")) {
-                // 231100 - 100
                 document.getElementById("screen").src = `images/image${time-100+58}.jpg`
             } else {
                 document.getElementById("screen").src = `images/image${time-1}.jpg`
             }
-        }, 900);
+        }, fps_interval);
         
     </script>
 </html>
